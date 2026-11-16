@@ -1,0 +1,6 @@
+{
+  "name": "Tertvalis | Financial Forecasting & Scenario Intelligence",
+  "description": "Explore Tertvalis for financial planning, forecasting, scenario comparisons, and clearer insight into potential business outcomes.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

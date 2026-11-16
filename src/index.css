@@ -1,0 +1,216 @@
+@import "tailwindcss";
+
+@layer base {
+  :root {
+    /* Official Tertvalis Light-Theme Brand Design System Variables */
+    --bg-canvas: #FAFAFA;
+    --surface-white: #FFFFFF;
+    --primary-blue: #050FD8;
+    --secondary-blue: #076CF2;
+    --accent-mint: #05F2AD;
+    --text-main: #0D0D0D;
+    --text-muted: #475569;
+    --border-subtle: #E2E8F0;
+
+    /* Font families: Plus Jakarta Sans for Headings, Inter for Body */
+    --font-heading: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-body: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+    --font-serif-accent: 'Playfair Display', Georgia, serif;
+  }
+
+  html {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    scroll-behavior: smooth;
+    /* Account for the fixed floating header */
+    scroll-padding-top: 6rem;
+    overflow-x: clip;
+    color-scheme: light;
+  }
+
+  body {
+    background-color: var(--bg-canvas);
+    color: var(--text-main);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    overflow-x: clip;
+    margin: 0;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  .font-heading {
+    font-family: var(--font-heading);
+    letter-spacing: -0.025em;
+    text-wrap: balance;
+  }
+
+  .font-mono-tabular {
+    font-family: var(--font-mono);
+    font-variant-numeric: tabular-nums;
+  }
+
+  .font-serif-accent {
+    font-family: var(--font-serif-accent);
+    font-style: italic;
+  }
+
+  /* Accessible keyboard focus indicator across all interactive elements */
+  a:focus-visible,
+  button:focus-visible,
+  input:focus-visible,
+  select:focus-visible,
+  textarea:focus-visible {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+  }
+}
+
+/* Official Tertvalis Brand Gradient Utilities (Light Theme) */
+.bg-brand-gradient {
+  background: linear-gradient(135deg, #050FD8 0%, #076CF2 62%, #05F2AD 100%);
+}
+
+.bg-brand-blue-gradient {
+  background: linear-gradient(135deg, #050FD8 0%, #076CF2 100%);
+}
+
+.bg-brand-mesh-light {
+  background-color: #FAFAFA;
+  background-image:
+    radial-gradient(at 12% 10%, rgba(5, 15, 216, 0.08) 0px, transparent 48%),
+    radial-gradient(at 88% 15%, rgba(7, 108, 242, 0.10) 0px, transparent 52%),
+    radial-gradient(at 65% 85%, rgba(5, 242, 173, 0.13) 0px, transparent 50%);
+}
+
+.bg-brand-card-tint {
+  background: linear-gradient(180deg, #FFFFFF 0%, #F5F8FF 100%);
+}
+
+.text-brand-gradient {
+  background: linear-gradient(120deg, #050FD8 0%, #076CF2 75%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Butter-Smooth Hardware-Accelerated Skeleton Loading & Shimmer Animations */
+@keyframes skeleton-gpu-shimmer {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+@keyframes top-loader-smooth {
+  0% {
+    transform: translateX(-100%) scaleX(0.2);
+  }
+  50% {
+    transform: translateX(30%) scaleX(0.7);
+  }
+  100% {
+    transform: translateX(240%) scaleX(0.3);
+  }
+}
+
+.animate-top-loader {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 50%;
+  will-change: transform;
+  transform: translateZ(0);
+  animation: top-loader-smooth 1.35s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+}
+
+.skeleton-shimmer {
+  position: relative;
+  overflow: hidden;
+  background-color: #E6EDF5;
+  transform: translateZ(0);
+}
+
+.skeleton-shimmer::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.75) 50%,
+    transparent 100%
+  );
+  animation: skeleton-gpu-shimmer 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.skeleton-shimmer-dark {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(255, 255, 255, 0.08);
+  transform: translateZ(0);
+}
+
+.skeleton-shimmer-dark::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  animation: skeleton-gpu-shimmer 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+
+.skeleton-shimmer-blue {
+  position: relative;
+  overflow: hidden;
+  background-color: rgba(7, 108, 242, 0.08);
+  transform: translateZ(0);
+}
+
+.skeleton-shimmer-blue::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  transform: translateX(-100%);
+  background: linear-gradient(
+    90deg,
+    transparent 0%,
+    rgba(5, 242, 173, 0.25) 50%,
+    transparent 100%
+  );
+  animation: skeleton-gpu-shimmer 1.5s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+  will-change: transform;
+  pointer-events: none;
+}
+
+/* Respect prefers-reduced-motion for users who request reduced animations */
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
